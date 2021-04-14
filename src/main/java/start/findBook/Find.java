@@ -8,6 +8,7 @@ import java.util.List;
 public class Find implements FindBook{
 
     private Book book;
+
     private List<Integer> numb = new ArrayList<>();
     private List<String> titles = new ArrayList<>();
     private List<String> names = new ArrayList<>();
@@ -23,7 +24,7 @@ public class Find implements FindBook{
 
 
     @Override
-    public List<Integer> getID(String findTitle) {
+    public List<Integer> getIdOf(String findTitle) {
             int x = 0;
         //operation on titles from book class
         for(String title : book.getArrayT()){
@@ -39,7 +40,7 @@ public class Find implements FindBook{
     }
 
     @Override
-    public List<String> getTitle(String findTitle) {
+    public List<String> getTitle() {
         for(int number : numb){
             //System.out.println(book.getArrayN().get(number));
             titles.add(book.getArrayT().get(number));
@@ -70,6 +71,10 @@ public class Find implements FindBook{
             years.add(book.getArrayY().get(number));
         }
         return years;
+    }
+
+    public List<Integer> getNumb() {
+        return numb;
     }
 
 }

@@ -1,11 +1,18 @@
 package start.addBook;
 
+import start.result.Printer;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Book implements AddBook {
 
+    public int getLicznik() {
+        return licznik;
+    }
 
+    private int licznik = 0;
     private List<String> title = new ArrayList<>();
     private List<String> name = new ArrayList<>();
     private List<String> lname = new ArrayList<>();
@@ -35,12 +42,21 @@ public class Book implements AddBook {
         number.add((number.size())+1);
     }
 
-    public void setEveryThing(String name, String lname, String year, String title){
+    public void setEveryThing(){
+        Printer p = new Printer();
+        Scanner scan = new Scanner(System.in);
         setArrayNr();
-        setName(name);
-        setLname(lname);
-        setYear(year);
-        setTitle(title);
+        licznik++;
+
+        p.pM("Podaj imię autora");
+        setName(scan.nextLine());
+        p.pM("Podaj nazwisko autora");
+        setLname(scan.nextLine());
+        p.pM("Podaj rok wydania ksiązki");
+        setYear(scan.nextLine());
+        p.pM("Podaj tytuł książki");
+        setTitle(scan.nextLine());
+
     }
 
     @Override
