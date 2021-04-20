@@ -6,6 +6,7 @@ import start.findBook.Find;
 import start.result.Printer;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -26,16 +27,26 @@ public class Start {
                     break;
                 case 2:
                     if(book.getLicznik() == 0){
-                        p.pM("rggrgwwrrgrrggrgrwrgwggwwrggwrgwgwgrwrrw");
+                        p.pM("nie dodano żadnej książki !!!");
                     } else{
                         p.pM("Podaj tytuł");
-                        find.getIdOf(scan.nextLine());
 
-                            p.pM("Tytuł ksiązki to: "
-                                    +find.getTitle() +
-                                    "\nImię Autora: " + find.getName()
-                                    + "\nNazwisko Autora " + find.getLName()
-                                    + "\nRok wydania: " + find.getYear());
+                        // Setting searched titles as numbers from 0 to ... in List colection named numb
+                        find.setIdOf(scan.nextLine());
+                        // Iterator to switching between next numb
+                        Iterator<Integer> iterator = find.getLength();
+                        // x represent next title with the same name
+                        int x =0;
+                        while(iterator.hasNext()){
+                            p.pM0();
+                            p.pM("ID:" + find.getNumb().get(x)+
+                                    "\n Tytuł ksiązki to: " +find.getTitle(x)
+                                    + "\n Imię autora: "+ find.getName(x)
+                                    + "\n Nazwisko autora: "+ find.getLName(x)
+                                    + "\n Rok Wydania: "+ find.getYear(x));
+                            x++;
+                            iterator.next();
+                        }
                     }
 
                     p.pM0();
@@ -49,7 +60,6 @@ public class Start {
             }
         }
        // book.setEveryThing("e","e","1998", "e");
-
 
 
     }
