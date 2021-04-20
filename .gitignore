@@ -147,3 +147,4 @@ buildNumber.properties
 
 .idea/
 Zadanie2.iml
+.gradle/

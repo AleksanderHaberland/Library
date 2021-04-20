@@ -40,6 +40,7 @@ public class Book implements AddBook {
     public void setArrayNr(){
         // Setting new value by last + 1
         number.add((number.size())+1);
+
     }
 
     public void setEveryThing(){

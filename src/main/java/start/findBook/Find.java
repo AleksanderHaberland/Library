@@ -9,8 +9,7 @@ import java.util.List;
 public class Find implements FindBook {
 
     private Book book;
-    private int idOfBook;
-    private List<Integer> numb = new ArrayList<>();
+    private List<Integer> numb;
     private List<String> titles = new ArrayList<>();
     private List<String> names = new ArrayList<>();
     private List<String> lnames = new ArrayList<>();
@@ -24,21 +23,33 @@ public class Find implements FindBook {
         return book;
     }
 
-    public int getIdOfBook() {
-        return idOfBook;
-    }
-
     @Override
-    public void setIdOf(String findTitle) {
+    public void setIdOfTitle(String findTitle) {
         int x = 0;
+        numb = new ArrayList<>();
+
         //operation on titles from book class
         for (String title : book.getArrayT()) {
             if (title.equals(findTitle)) {
                 numb.add(x);
-                System.out.println(x + "oto x który jest elementem w tablic numb");
-                idOfBook = x;
                 x++;
             } else x++;
+        }
+    }
+
+    @Override
+    public void setIdOfNameLName(String findName, String findLName) {
+        //operation on titles from book class
+        int x = 0;
+        numb = new ArrayList<>();
+
+        while (x != book.getLicznik()) {
+            if(book.getArrayN().get(x).equals(findName) && book.getArrayL().get(x).equals(findLName)){
+                numb.add(x);
+                x++;
+
+            }else { x++;
+            }
         }
     }
 
@@ -82,7 +93,7 @@ public class Find implements FindBook {
     }
 
     public Iterator<Integer> getLength() {
-         Iterator<Integer> iterator = numb.iterator();
-        return  iterator;
+        Iterator<Integer> iterator = numb.iterator();
+        return iterator;
     }
 }
